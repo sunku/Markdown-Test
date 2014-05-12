@@ -346,8 +346,6 @@ AdFresca.getInstance(this).logPurchase(purchase, new AFPurchaseExceptionListener
 **setNumberOfInAppPurchases(int)** 메소드를 사용하여 현재까지 사용자가 구매한 누적 횟수 값을 SDK에 설정합니다. 커스텀 파라미터와 마찬가지로 앱 실행 혹은 사용자 로그인 이후에 값을 지정하고, IAP 결제가 일어난 직후에 갱신된 누적 구매 횟수 값을 설정합니다.
 
 ```java
-  AdFresca adfresca = AdFresca.getInstance(this);
-  
   public void onCreate() {
     AdFresca fresca = AdFresca.getInstance(this);     
     fresca.setNumberOfInAppPurchases(User.inAppPurchaseCount);
@@ -402,8 +400,8 @@ public void onResume() {
         sendItemToUser(item.getUniqueValue());  
       }});
           
-  AdFresca adfresca = AdFresca.getInstance(this);
-  adfresca.checkRewardItems();
+  AdFresca fresca = AdFresca.getInstance(this);
+  fresca.checkRewardItems();
 }
 ```
 
@@ -435,11 +433,11 @@ Integer, Boolean 형태의 데이터를 상태 값으로 설정할 수 있으며
 
 ```java
   public void onCreate() {
-    AdFresca adfresca = AdFresca.getInstance(this);     
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, User.level);
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_AGE, User.age);
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_HAS_FB_ACCOUNT, User.hasFacebookAccount);
-    adfresca.startSession();
+    AdFresca fresca = AdFresca.getInstance(this);     
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, User.level);
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_AGE, User.age);
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_HAS_FB_ACCOUNT, User.hasFacebookAccount);
+    fresca.startSession();
   }
   
   .....
@@ -447,10 +445,10 @@ Integer, Boolean 형태의 데이터를 상태 값으로 설정할 수 있으며
   public void onUserLevelChanged(int level) {
     User.level = level
     
-    AdFresca adfresca = AdFresca.getInstance(this);     
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, User.level);
-    adfresca.load(MOMENT_INDEX_LEVEL_UP);
-    adfresca.show();
+    AdFresca fresca = AdFresca.getInstance(this);     
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, User.level);
+    fresca.load(MOMENT_INDEX_LEVEL_UP);
+    fresca.show();
   }
 ```
 
@@ -460,22 +458,22 @@ Integer, Boolean 형태의 데이터를 상태 값으로 설정할 수 있으며
 
 ```java
   public void onCreate() {
-    AdFresca adfresca = AdFresca.getInstance(this);     
+    AdFresca fresca = AdFresca.getInstance(this);     
     if (isFirstRun) {
-      adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, defaultLevel);
-      adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_STAGE, defaultStage);
-      adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_HAS_FB_ACCOUNT, defaultFacebookFlag);
+      fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, defaultLevel);
+      fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_STAGE, defaultStage);
+      fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_HAS_FB_ACCOUNT, defaultFacebookFlag);
     }    
-    adfresca.startSession();
+    fresca.startSession();
   }
   
   .....
   
   public void onUserSignedIn() {
-    AdFresca adfresca = AdFresca.getInstance(this);     
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, User.level);
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_AGE, User.age);
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_HAS_FB_ACCOUNT, User.hasFacebookAccount);
+    AdFresca fresca = AdFresca.getInstance(this);     
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, User.level);
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_AGE, User.age);
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_HAS_FB_ACCOUNT, User.hasFacebookAccount);
   }
 ```
 
@@ -500,9 +498,9 @@ SDK 적용을 위해서는 Dashboard에서 지정된 각 마케팅 모멘트의 
 ```java
   public class MainPageActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
-      AdFresca adfresca = AdFresca.getInstance(this);     
-      adfresca.load(MOMENT_INDEX_MAIN_PAGE);  // 메인 페이지에 설정한 콘텐츠츠를 노출
-      adfresca.show(MOMENT_INDEX_MAIN_PAGE);
+      AdFresca fresca = AdFresca.getInstance(this);     
+      fresca.load(MOMENT_INDEX_MAIN_PAGE);  // 메인 페이지에 설정한 콘텐츠츠를 노출
+      fresca.show(MOMENT_INDEX_MAIN_PAGE);
     }
   }
 ```
@@ -511,10 +509,10 @@ SDK 적용을 위해서는 Dashboard에서 지정된 각 마케팅 모멘트의 
 
 ```java
   public void onUserLevelChanged(int level) {
-    AdFresca adfresca = AdFresca.getInstance(this);
-    adfresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, level); // 사용자 level 정보를 가장 최신으로 업데이트
-    adfresca.load(MOMENT_INDEX_LEVEL_UP); // 레벨업 모멘트에 설정한 콘텐츠를 노출
-    adfresca.show(MOMENT_INDEX_LEVEL_UP);
+    AdFresca fresca = AdFresca.getInstance(this);
+    fresca.setCustomParameterValue(CUSTOM_PARAM_INDEX_LEVEL, level); // 사용자 level 정보를 가장 최신으로 업데이트
+    fresca.load(MOMENT_INDEX_LEVEL_UP); // 레벨업 모멘트에 설정한 콘텐츠를 노출
+    fresca.show(MOMENT_INDEX_LEVEL_UP);
   }
 ```
 
@@ -587,17 +585,11 @@ _Banner View_ 를 사용하기 위해 태그를 추가합니다.
 마케팅 모멘트 기능을 활용하여 여러 개의 뷰를 한 화면에 동시에 노출할 수 있습니다. 
 
 ```java
-@Override
 protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
-  setContentView(R.layout.activity_intro);
-  
-  AdFresca.setApiKey(API_KEY);
-  AdFresca adfresca = AdFresca.getInstance(this);
-  adfresca.startSession();
-  adfresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_BANNER); // 메인 페이지진입 시 Banner View 를 위한 컨텐츠를 load 합니다.
-  adfresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_INTERSTITIAL); // 메인 페이지 진입 시 Interstitial View 를 위한 컨텐츠를 load 합니다.
-  adfresca.show(); // load 된 모든 컨텐츠를 show 합니다.
+  AdFresca fresca = AdFresca.getInstance(this);
+  fresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_BANNER); // 메인 페이지진입 시 Banner View 를 위한 컨텐츠를 load 합니다.
+  fresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_INTERSTITIAL); // 메인 페이지 진입 시 Interstitial View 를 위한 컨텐츠를 load 합니다.
+  fresca.show(); // load 된 모든 컨텐츠를 show 합니다.
 }
 ```
 
@@ -680,8 +672,8 @@ SDK를 적용하기 이전에 ["Baidu Cloud Push" ](http://developer.baidu.com/w
         PushConstants.LOGIN_TYPE_API_KEY, 
         "YOUR_BAIDU_PUSH_API_KEY");
 
-  AdFresca adfresca = AdFresca.getInstance(this);
-  adfresca.startSession();
+  AdFresca fresca = AdFresca.getInstance(this);
+  fresca.startSession();
 ```
 
 4) BaiduPushMessageReceiver 클래스 구현하기
@@ -728,10 +720,9 @@ Baidu Push 적용이 완료되었습니다.
 - `view == null`이면 컨텐츠가 보여지지 않고 끝난 경우입니다.
 
 ```java
-AdFresca adfresca = AdFresca.getInstance(this);
-adfresca.startSession();
-adfresca.load(MOMENT_INDEX_STAGE_CLEAR);
-adfresca.show(new AFShowListener(){
+AdFresca fresca = AdFresca.getInstance(this);
+fresca.load(MOMENT_INDEX_STAGE_CLEAR);
+fresca.show(new AFShowListener(){
   @Override
   public void onFinish(int eventIndex, AFView view) {
     if(view == null) {
@@ -749,10 +740,9 @@ adfresca.show(new AFShowListener(){
 **Example:** _인트로 액티비티_에서 컨텐츠를 보여주고 끝나면 _메인 액티비티_로 이동
 
 ```java
-AdFresca adfresca = AdFresca.getInstance(this);
-adfresca.startSession();
-adfresca.load(MOMENT_INDEX_INTRO);
-adfresca.show(MOMENT_INDEX_INTRO, new AFShowListener(){
+AdFresca fresca = AdFresca.getInstance(this);
+fresca.load(MOMENT_INDEX_INTRO);
+fresca.show(MOMENT_INDEX_INTRO, new AFShowListener(){
   @Override
   public void onFinish(int eventIndex, AFView view) {
     startActivity(new Intent(IntroActivity.this, MainActivity.class));
@@ -774,10 +764,10 @@ Dashboard 에서 Marketing Moment의 Close Mode 를 Override 로 변경 합니�
 public void onResume() {
   super.onResume();
 
-  AdFresca adfresca = AdFresca.getInstance(this);
+  AdFresca fresca = AdFresca.getInstance(this);
   
-  if (adfresca.getDefaultViewVisibility() == View.VISIBLE && adfresca.isUserClickedDefaultView()) {   
-    adfresca.closeAd();
+  if (fresca.getDefaultViewVisibility() == View.VISIBLE && fresca.isUserClickedDefaultView()) {   
+    fresca.closeAd();
   }
 }
 ```
@@ -954,7 +944,9 @@ public class PushProxyActivity extends Activity {
 
 Cocos2d-x 환경에서 Custom URL Schema를 처리할 수 있는 모든 방법을 구현하였습니다.
 
-### Cross Promotion Configuration](#cross-promotion-configuration)
+* * *
+
+### Cross Promotion Configuration
 
 Incentivized 크로스프로모션 캠페인 기능을 사용하여, 사용자가 Media App에서 Advertising App의 광고를 보고 앱을 설치하였을 때 보상으로 Media App의 아이템을 지급할 수 있습니다.
 
@@ -985,16 +977,18 @@ SDK 적용을 위해서는 Advertising App에서의 패키지 이름 확인 및 
     
   ```java
   // 튜토리얼 완료 모멘트를 보상 조건으로 지정한 경우
-  AdFresca adfresca = AdFresca.getInstance(this);     
-  adfresca.load(MOMENT_INDEX_TUTORIAL); 
-  adfresca.show(MOMENT_INDEX_TUTORIAL);
+  AdFresca fresca = AdFresca.getInstance(this);     
+  fresca.load(MOMENT_INDEX_TUTORIAL); 
+  fresca.show(MOMENT_INDEX_TUTORIAL);
   ```
 
 #### Media App SDK 적용하기:
 
   Media App에서 보상 지급 여부를 확인하고, 사용자에게 아이템을 지급하기 위해서는 SDK 가이드의 [Give Reward](#give-reward) 항목의 내용을 구현합니다.
 
-### Google Referrer Tracking](#google-referrer-tracking)
+* * *
+
+### Google Referrer Tracking
 
 Google Play 캠페인을 통해 앱을 설치하는 경우, Referrer 정보를 분석하여 통계 데이터를 제공합니다.
 
@@ -1025,14 +1019,16 @@ am broadcast -a com.android.vending.INSTALL_REFERRER -n YOUR_PACKAGE/com.adfresc
 3) referrer 값이 SDK에 설정 되었는지 확인하기
 
 ```java
-AdFresca adfresca = AdFresca.getInstance(this);
-Log.v(TAG, "Google Referrer = " + adfresca.getReferrer());
+AdFresca fresca = AdFresca.getInstance(this);
+Log.v(TAG, "Google Referrer = " + fresca.getReferrer());
 ``` 
 (Advanced) 이미 INSTALL_REFERRER를 추출하는 다른 boradcast recicever를 적용 중인 경우, setReferrer(string) 메소드를 이용하여 직접 SDK에 값을 전달할 수 있습니다.
 
 주의: 특정 디바이스에서 한 번 AD fresca 서비스에 INSTALL_REFERRER가 등록되었다면, 더이상 수동으로 값을 변경할 수 없습니다. 클라이언트에서 값을 변경하더라도 Dashboard의 통계 데이터에는 그 값이 변경되지 않습니다.
 
-### Image Push Notification](#image-push-notification)
+* * *
+
+### Image Push Notification
 
 _AD fresca_ Android SDK는 일반적인 텍스트 형태의 Notification 뿐만 아니라 이미지를 포함한 새로운 형태의 _Image Push Notification_ 기능을 제공하고 있습니다. 이미지 푸시 메시지를 이용하시면 기존의 텍스트 푸시 메시지에 비해 사용자의 주목을 끌 수 있을 뿐만 아니라, 한 눈에 쉽게 내용을 파악할 수 있습니다.
 
@@ -1109,7 +1105,9 @@ protected void onMessage(Context context, Intent intent) {
 } 
 ```
 
-### Proguard Configuration](#proguard-configuration)
+* * *
+
+### Proguard Configuration
 
 Proguard 툴을 이용하여 APK 파일을 보호하는 경우 몇 가지 예외 처리 작업을 진행해야 합니다. AD fresca SDK와 SDK에 포함된 OpenUDID 및 Google Gson에 대한 예외 처리를 아래와 같이 적용합니다.
 
@@ -1143,10 +1141,10 @@ AdFresca.setExceptionListener(new AFExceptionListener(){
 
 - **v2.4.0-beta4 _(2014/04/06 Updated)_**
     - v2.3.4에서 적용된 'Announcement 캠페인을 통한 Reward Item 지급 기능'을 지원합니다.
-    -  v2.3.4에서 적용된 Incentivized CPA 캠페인 기능을 지원합니다. 자세한 내용은 [CPI Identifier](#cpi-identifier) 항목을 참고하여 주세요.
-    - v2.3.4에서 개선된 [Reward Item](#reward-item) 기능이 적용되었습니다. 
+    - v2.3.4에서 적용된 Incentivized CPA 캠페인 기능을 지원합니다. 자세한 내용은 [Cross Promotion Configuration](#cross-promotion-configuration) 항목을 참고하여 주세요.
+    - v2.3.4에서 개선된 [Give Reward](#give-reward) 기능이 적용되었습니다. 
 - v2.4.0-beta3 
-    - v2.3.3에서 적용된 [Image Push Notification](#image-notification) 기능이 추가되었습니다. 
+    - v2.3.3에서 적용된 [Image Push Notification](#image-push-notification) 기능이 추가되었습니다. 
 - v2.4.0-beta2 
     - v2.3.2에서 패치된 Timeout 이벤트 처리가 적용되었습니다.
     - [Unity Plugin 2.2.0-beta1](https://github.com/adfresca/sdk-unity-sample/blob/master/README.md#release-notes) 버전을 지원합니다.
@@ -1154,7 +1152,7 @@ AdFresca.setExceptionListener(new AFExceptionListener(){
     - 앱 내에서 발생하는 In-App Purchase 데이터를 트랙킹할 수 있는 기능이 추가되었습니다. 자세한 내용은 [In-App Purchase Tracking (Beta)](#in-app-purchase-tracking-beta) 항목을 참고하여 주세요. [In-App Purchase Tracking (Beta)](#in-app-purchase-tracking-beta) 항목을 참고하여 주세요.
 - **v2.3.4 _(2014/04/06 Updated)_**
    - Announcement 캠페인을 통한 Reward Item 지급 기능을 지원합니다.
-   - Incentivized CPA 캠페인 기능을 지원합니다. 자세한 내용은 [CPI Identifier](#cpi-identifier) 항목을 참고하여 주세요.
+   - Incentivized CPA 캠페인 기능을 지원합니다. 자세한 내용은 [Cross Promotion Configuration](#cross-promotion-configuration) 항목을 참고하여 주세요.
    - AFRewardItemListener 구현 기능이 추가되어, 지급 가능한 아이템이 발생할 시에 자동으로 onReward 이벤트가 발생합니다. 보다 자세한 내용은 [Reward Item](#reward-item) 항목을 참고하여 주세요.
 - v2.3.3 _(01/30/2014 Updated)_ 
     - Image Push Notifcaiton 기능이 추가되었습니다. 적용에 대한 자세한 내용은 [Image Notification](#image-notification) 항목을 참고하여 주세요.
