@@ -127,9 +127,7 @@ public void onResume(Bundle savedInstanceState) {
 
 푸시 메시징 기능을 적용하여 사용자들에게 손쉽게 메시지를 전송할 수 있습니다.
 
-SDK를 적용하기 이전에 [Google API Console](https://cloud.google.com/console) 사이트에서 프로젝트를 생성하고, [Dashboard](https://admin.adfresca.com) 사이트에 설정할 GCM API Key 및 SDK 적용에 필요한 GCM_SENDER_ID (Project Number) 값을 얻어야 합니다.
-
-'[Android Push Notification 설정 및 적용하기 (GCM)](https://adfresca.zendesk.com/entries/28526764)' 가이드를 참고하여 필요한 값들을 얻습니다.
+SDK를 적용하기 이전에 '[Android Push Notification 설정 및 적용하기 (GCM)](https://adfresca.zendesk.com/entries/28526764)' 가이드를 참고하여 [Google API Console](https://cloud.google.com/console)에서 생성한 프로젝트의 API Key를 [Dashboard](https://admin.adfresca.com) 사이트에 설정합니다. (프로젝트를 새롭게 생성하는 경우는 Project Number 값을 복사해둡니다.)
 
 이제 SDK 적용을 시작합니다.
 
