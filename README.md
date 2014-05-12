@@ -1,7 +1,7 @@
 ## Contents
 - [Basic Integration](#basic-integration)
     - [Installation](#installation)
-    - [Start-Session](#start-session)
+    - [Start Session](#start-session)
     - [In-App Messaging](#in-app-messaging)
     - [Push Messaging](#push-messaging)
     - [Test Device Registration](#test-device-registration)
