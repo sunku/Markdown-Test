@@ -179,7 +179,7 @@ protected void onMessage(Context context, Intent intent) {
 
     // 푸시 메시지를 표시합니다. 
     AFPushNotification notification = AdFresca.generateAFPushNotification(context, intent, targetActivityClass, appName, icon, when);
-    notification.setDefaults(Notification.DEFAULT_ALL);
+    notification.setDefaults(Notification.DEFAULT_ALL); // 알림음, 진동, LED 설정
     AdFresca.showNotification(notification);
   } 
 
