@@ -149,7 +149,7 @@ SDK를 적용하기 이전에 [Google API Console](https://cloud.google.com/cons
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
-- [Installation](#installation) 과정에서 위 항목이 정상적으로 추가되었는지 확인합니다. 만약 GCM 기능을 처음 사용하는 경우, 여기를 클릭하여 전체 xml 내용을 확인합니다. 
+- [Installation](#installation) 과정에서 위 항목이 정상적으로 추가되었는지 확인합니다. 만약 GCM 기능을 처음 사용하는 경우, '링크'를 클릭하여 전체 xml 내용을 확인합니다. 
 
 3) GCM Registration ID 값을 SDK에 설정하기
 
@@ -157,9 +157,9 @@ SDK를 적용하기 이전에 [Google API Console](https://cloud.google.com/cons
 AdFresca.setPushRegistrationId("GCM_REGISTRATION_ID_OF_THIS_DEVICE");
 ```
 
-- GCM Registration ID를 추출하는 코드는 여기 링크를 통하여 확인할 수 있습니다.
+- GCM Registration ID 값을 얻어오는 코드는 '링크'를 통하여 확인할 수 있습니다.
 
-4) GCMIntentService 클래스의 이벤트 코드 구현하기
+4) GCMIntentService 클래스의 이벤트 코드를 구현하여 메시지 표시하기
 
 ```java
 protected void onRegistered(Context context, String registrationId) {
@@ -181,7 +181,7 @@ protected void onMessage(Context context, Intent intent) {
 
     // 푸시 메시지를 표시합니다. 
     AFPushNotification notification = AdFresca.generateAFPushNotification(context, intent, targetActivityClass, appName, icon, when);
-    notification.setDefaults(Notification.DEFAULT_ALL); 
+    notification.setDefaults(Notification.DEFAULT_ALL);
     AdFresca.showNotification(notification);
   } 
 
@@ -189,7 +189,8 @@ protected void onMessage(Context context, Intent intent) {
 ```
 
 - 푸시 메시지를 터치하면 targetActivityClass로 지정한 액티비티를 기본적으로 실행합니다. 단, 푸시 메시지에 Click URl 값을 실행한 경우는 해당 URL이 실행됩니다.
-- 예제와 같이 AFPushNotification 객체의 setDefaults(), setSound() 메소드를 호출하면 메시지 수신 시에 알림음, 사운드 재생 등을 설정할 수 있습니다.
+- 예제와 같이 AFPushNotification 객체의 setDefaults()나 setSound() 메소드를 사용하면 메시지 수신 시에 알림음, 사운드 재생 등을 설정할 수 있습니다.
+- GCMIntentService 클래스를 처음 생성하는 경우, '링크'를 클릭하여 전체 코드를 참고합니다.
 
 ### Test Device Registration
 
@@ -582,7 +583,7 @@ _Banner View_ 를 사용하기 위해 태그를 추가합니다.
 ```
 
 - `adfresca:image_size_index="1"` 이미지 사이즈 인덱스를 설정합니다.
-- `adfresca:keep_aspect_ratio="width"` 로드된 컨텐츠에 따라 _Banner View_의 가로세로 비율을 유지합니다. _width_가 세팅된 경우 _Banner View_의 세로값을 변경하여 비율을 유지합니다. 이 경우 `android:layout_height`는 반드시 `wrap_content` 가 되어야합니다. (`adfresca:keep_aspect_ratio`는  [ _none_ | _width_ | _height_ ] 중에 하나의 값을 가지며 디폴트는 _none_ 입니다.)
+- `adfresca:keep_aspect_ratio="width"` 로드된 콘텐츠츠에 따라 _Banner View_의 가로세로 비율을 유지합니다. _width_가 세팅된 경우 _Banner View_의 세로값을 변경하여 비율을 유지합니다. 이 경우 `android:layout_height`는 반드시 `wrap_content` 가 되어야합니다. (`adfresca:keep_aspect_ratio`는  [ _none_ | _width_ | _height_ ] 중에 하나의 값을 가지며 디폴트는 _none_ 입니다.)
 - `adfresca:default_image="@drawable/default_image"` 이미지가 로드되기 전 표시할 디폴트 이미지를 지정합니다.
 
 **Example:** 한 액티비티에서 기본 _Interstitial View_와 _Banner View_ 두 개의 View를 동시에 사용하기
@@ -592,9 +593,9 @@ _Banner View_ 를 사용하기 위해 태그를 추가합니다.
 ```java
 protected void onCreate(Bundle savedInstanceState) {
   AdFresca fresca = AdFresca.getInstance(this);
-  fresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_BANNER); // 메인 페이지진입 시 Banner View 를 위한 컨텐츠를 load 합니다.
-  fresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_INTERSTITIAL); // 메인 페이지 진입 시 Interstitial View 를 위한 컨텐츠를 load 합니다.
-  fresca.show(); // load 된 모든 컨텐츠를 show 합니다.
+  fresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_BANNER); // 메인 페이지진입 시 Banner View 를 위한 콘텐츠츠를 load 합니다.
+  fresca.load(MOMENT_INDEX_MAIN_PAGE_FOR_INTERSTITIAL); // 메인 페이지 진입 시 Interstitial View 를 위한 콘텐츠츠를 load 합니다.
+  fresca.show(); // load 된 모든 콘텐츠츠를 show 합니다.
 }
 ```
 
@@ -715,18 +716,18 @@ Baidu Push 적용이 완료되었습니다.
 
 ### AFShowListener
 
-`AFShowListener`는 SDK에서 컨텐츠 프로세싱이 종료되었을 때 이벤트 처리를 위한 _이벤트 리스너_입니다.
+`AFShowListener`는 SDK에서 콘텐츠츠 프로세싱이 종료되었을 때 이벤트 처리를 위한 _이벤트 리스너_입니다.
 
-컨텐츠 프로세싱이 종료되었다는 것은 다음 3가지를 의미합니다.
+콘텐츠츠 프로세싱이 종료되었다는 것은 다음 3가지를 의미합니다.
 
-1. 컨텐츠가 정상적으로 화면에 보여지고 닫혀진 경우
-2. 컨텐츠가 매칭되지 않았거나 컨텐츠에 맞는 view를 찾을 수 없어서 화면에 보여지지 않고 끝난 경우
-3. 네트워크 이슈로 컨텐츠 매칭 요청 시간 초과 (Timeout) 이벤트가 발생한 경우
+1. 콘텐츠츠가 정상적으로 화면에 보여지고 닫혀진 경우
+2. 콘텐츠츠가 매칭되지 않았거나 콘텐츠츠에 맞는 view를 찾을 수 없어서 화면에 보여지지 않고 끝난 경우
+3. 네트워크 이슈로 콘텐츠츠 매칭 요청 시간 초과 (Timeout) 이벤트가 발생한 경우
 
 이 두가지 경우를 `AFShowListener.show(int eventIndex, AFView view)`의 두번째 인자 `view`로 판별할 수 있습니다.
 
-- `view != null`이면 컨텐츠가 정상적으로 보여진 경우입니다. 이때 `view`는 [ _Default View_ | _Floating View_ | _Banner View_ ] 가 됩니다. `AFView.isDefaultView()`로 _Default View_ 인지 판별할 수 있습니다.
-- `view == null`이면 컨텐츠가 보여지지 않고 끝난 경우입니다.
+- `view != null`이면 콘텐츠츠가 정상적으로 보여진 경우입니다. 이때 `view`는 [ _Default View_ | _Floating View_ | _Banner View_ ] 가 됩니다. `AFView.isDefaultView()`로 _Default View_ 인지 판별할 수 있습니다.
+- `view == null`이면 콘텐츠츠가 보여지지 않고 끝난 경우입니다.
 
 ```java
 AdFresca fresca = AdFresca.getInstance(this);
@@ -746,7 +747,7 @@ fresca.show(new AFShowListener(){
   }
 });
 ```
-**Example:** _인트로 액티비티_에서 컨텐츠를 보여주고 끝나면 _메인 액티비티_로 이동
+**Example:** _인트로 액티비티_에서 콘텐츠츠를 보여주고 끝나면 _메인 액티비티_로 이동
 
 ```java
 AdFresca fresca = AdFresca.getInstance(this);
@@ -760,13 +761,13 @@ fresca.show(MOMENT_INDEX_INTRO, new AFShowListener(){
 ```
 
 **_주의!_**
-사용자가 마켓이나 다른 애플리케이션의 URI가 설정된 컨텐츠를 클릭한 경우, 화면이 다른 애플리케이션으로 이동할 수 있습니다.
+사용자가 마켓이나 다른 애플리케이션의 URI가 설정된 콘텐츠츠를 클릭한 경우, 화면이 다른 애플리케이션으로 이동할 수 있습니다.
 
 이 때 onFinish()에 다른 Activity 로 이동하도록 구현하였다면, 사용자가 다른 화면에 있는 동안 앱의 Activity 가 미리 이동해버릴 수 있습니다.
 
 아래와 같은 방법으로 해당 문제를 해결할 수 있습니다.
 
-Dashboard 에서 Marketing Moment의 Close Mode 를 Override 로 변경 합니다. 이로 인해 ㅋ텐츠를 클릭해도 컨텐츠가 닫히지 않습니다. 그리고 액티비티의 onResume() 이벤트를 아래와 같이 구현합니다.
+Dashboard 에서 Marketing Moment의 Close Mode 를 Override 로 변경 합니다. 이로 인해 ㅋ텐츠를 클릭해도 콘텐츠츠가 닫히지 않습니다. 그리고 액티비티의 onResume() 이벤트를 아래와 같이 구현합니다.
 
 ```java
 @Override
@@ -785,7 +786,7 @@ public void onResume() {
 
 ### Timeout Interval
 
-컨텐츠의 최대 로딩 시간을 직접 지정하실 수 있습니다. 지정된 시간 내에 컨텐츠가 로딩되지 못한 경우, 사용자에게 컨텐츠를 노출하지 않습니다.
+콘텐츠츠의 최대 로딩 시간을 직접 지정하실 수 있습니다. 지정된 시간 내에 콘텐츠츠가 로딩되지 못한 경우, 사용자에게 콘텐츠츠를 노출하지 않습니다.
 
 최소 1초 이상 지정이 가능하며, 지정하지 않을 시 기본 값으로 5초가 지정 됩니다.
 
@@ -1135,7 +1136,7 @@ Proguard 툴을 이용하여 APK 파일을 보호하는 경우 몇 가지 예외
 
 ## Trouble Shooting
 
-컨텐츠 제대로 출력되지 않거나, 에러가 발생한다면 AdExceptionListener 인터페이스를 구현하여, 에러 정보를 확인 할 수 있습니다.
+콘텐츠츠 제대로 출력되지 않거나, 에러가 발생한다면 AdExceptionListener 인터페이스를 구현하여, 에러 정보를 확인 할 수 있습니다.
 
 ```java
 AdFresca.setExceptionListener(new AFExceptionListener(){
@@ -1192,7 +1193,7 @@ AdFresca.setExceptionListener(new AFExceptionListener(){
 - v2.1.2
     - `AFBannerView.setKeepAspectRatio(AFBannerView.KeepAspectRatio)` 메소드가 추가되었습니다. 자바코드에서 `keep_aspect_ratio`를 세팅할 수 있습니다.
 - v2.1.1
-    - _Banner View_ 컨텐츠의 가로세로 비율을 유지하기 위한 `keep_aspect_ratio` attribute 가 `AFBannerView`에 추가되었습니다.
+    - _Banner View_ 콘텐츠츠의 가로세로 비율을 유지하기 위한 `keep_aspect_ratio` attribute 가 `AFBannerView`에 추가되었습니다.
     - `AFRewardItem` 의 멤버변수들이 Deprecated 되었습니다. 각 멤버변수들의 Getter 를 사용해주시기 바랍니다. 멤버변수들은 private 제한자로 변경될 예정입니다.
 - v2.1.0
     - `getAvailableRewardItems()`, `checkRewardItems()`, `checkRewardItems(boolean)` 메소드가 추가 되었습니다. _Incentivized Campaign_을 통해 유저에게 Reward Item 을 지급 할 수 있습니다.
