@@ -339,6 +339,8 @@ AdFresca.getInstance(this).logPurchase(purchase, new AFPurchaseExceptionListener
 });
 ```
 
+* * *
+
 ### In-App Purchase Count
 
 앱에서 IAP 기능을 사용하는 경우, 현재까지 사용자가 구매한 누적 횟수를 SDK에 설정하여 분석 및 타겟팅에 이용할 수 있습니다. 
@@ -364,6 +366,7 @@ AdFresca.getInstance(this).logPurchase(purchase, new AFPurchaseExceptionListener
 
 (Advanced) SDK는 현재 설정한 inAppPurchaseCount 값을 로컬에 저장하여 두고 있습니다. 특정 이슈가 발생하여 해당 값을 확인 및 초기화 시키고 싶은 경우 getNumberOfInAppPurchases(), resetNumberOfInAppPurchases() 메소드를 사용할 수 있습니다.
 
+* * *
 
 ### Give Reward
 
@@ -479,6 +482,8 @@ Integer, Boolean 형태의 데이터를 상태 값으로 설정할 수 있으며
 
 (Advanced) SDK는 현재 설정한 Custom Parameter 값을 로컬에 저장하여 두고 있습니다. 특정 이슈가 발생하여 해당 값을 확인 및 초기화 시키고 싶은 경우 getCustomParameterValue(index), resetCustomParameterValues() 메소드를 사용할 수 있습니다.
 
+* * *
+
 ### Marketing Moment
 
 마케팅 모멘트는 유저에게 메세지를 전달하고자 하는 상황을 의미합니다. (예: 캐릭터 레벨 업, 퀘스트 달성, 스토어 페이지 진입)
@@ -593,6 +598,8 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
+* * *
+
 ### Baidu Push Service Integration
 
 _AD fresca_ Android SDK는 Google의 GCM 서비스 외에도 Baidu Push 서비스를 이용하여 푸쉬 메시지를 사용자에게 전송할 수 있습니다. 
@@ -704,6 +711,8 @@ public class BaiduPushMessageReceiver extends BroadcastReceiver {
 
 Baidu Push 적용이 완료되었습니다.
 
+* * *
+
 ### AFShowListener
 
 `AFShowListener`는 SDK에서 컨텐츠 프로세싱이 종료되었을 때 이벤트 처리를 위한 _이벤트 리스너_입니다.
@@ -771,6 +780,8 @@ public void onResume() {
   }
 }
 ```
+
+* * *
 
 ### Timeout Interval
 
